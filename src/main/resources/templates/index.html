@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NIFTY 50 Stock Data</title>
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+</head>
+<body>
+<h1>Hello</h1>
+    <!-- <div class="container">
+        <h1>NIFTY 50 Stock Data</h1>
+        
+        <div class="stock-info" th:if="${stockData != null}">
+            <h2>Market Overview</h2>
+            <p>Symbol: <span th:text="${stockData.meta.symbol}"></span></p>
+            <p>Currency: <span th:text="${stockData.meta.currency}"></span></p>
+            <p>Current Price: <span th:text="${stockData.meta.regularMarketPrice}"></span></p>
+            <p>Previous Close: <span th:text="${stockData.meta.previousClose}"></span></p>
+            <p>Day High: <span th:text="${stockData.meta.regularMarketDayHigh}"></span></p>
+            <p>Day Low: <span th:text="${stockData.meta.regularMarketDayLow}"></span></p>
+        </div>
+        
+        <div class="price-table" th:if="${stockData != null}">
+            <h2>Price Movement (5-minute intervals)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Open</th>
+                        <th>High</th>
+                        <th>Low</th>
+                        <th>Close</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="i : ${#numbers.sequence(0, stockData.timestamp.size() - 1)}">
+                        <td th:text="${#temporals.format(#temporals.createFromMilli(stockData.timestamp[i] * 1000), 'HH:mm:ss')}"></td>
+                        <td th:text="${stockData.indicators.quote[0].open[i]}"></td>
+                        <td th:text="${stockData.indicators.quote[0].high[i]}"></td>
+                        <td th:text="${stockData.indicators.quote[0].low[i]}"></td>
+                        <td th:text="${stockData.indicators.quote[0].close[i]}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div th:if="${stockData == null}">
+            <p>No stock data available.</p>
+        </div>
+    </div> -->
+    <h1 th:text="${stockData}"></h1>
+</body>
+</html>
